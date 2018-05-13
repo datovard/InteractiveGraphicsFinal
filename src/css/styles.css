@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+html,
+body,
+.container {
+	height: 98.5%;
+	width: 98.5%;
+}
+
+body {
+	background-color: #FFFFFF;
+}
+
+.slides {
+	width: 700px;
+	height: 100%;
+	float: left;
+}
+
+.text {
+	height: 100%;
+	float: left;
+}
