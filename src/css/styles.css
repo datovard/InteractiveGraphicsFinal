@@ -12,12 +12,13 @@ body {
 }
 
 .slides {
-	width: 700px;
+	width: 850px;
 	height: 100%;
 	float: left;
 }
 
 .text {
+	width: 300px;
 	height: 100%;
 	float: left;
 }
