@@ -35,3 +35,36 @@ body {
 	width: 100%;
 	padding: 119px 22px;
 }
+
+#instruct {
+	display: none;
+}
+
+#instruct .signature {
+	margin-bottom: 20px;
+}
+
+#instruct h2 {
+	padding-left: 30px;
+}
+
+.instructions {
+	padding: 10px 38px;
+}
+
+.paints {
+	display: none;
+}
+
+.title {
+	padding: 10px 15px;
+  font-size: 30px;
+}
+
+.content {
+	padding: 5px 25px;
+}
+
+.date {
+	text-align: right;
+}

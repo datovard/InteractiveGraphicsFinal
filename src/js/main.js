@@ -122,6 +122,7 @@ var Menu =
 
 				move.chain(scale);
 				move.start();
+				this.showInfo(this.active);
 			} else {
 				scale = slideshow.add.tween(image.scale).to(
 					{ x: this.positions[this.active].s, y: this.positions[this.active].s },
@@ -129,12 +130,29 @@ var Menu =
 				move = slideshow.add.tween(image).to( { x: this.lastX, y: this.lastY }, 100, Phaser.Easing.Linear.None );
 				move.chain(scale);
 				move.start();
-
+				this.showInstruct( this.active );
+				
 				this.active = -1;
 				this.lastX = -1;
 				this.lastY = -1;
 			}
 		}
+	},
+
+	showInfo: function( id )
+	{
+		$("#instruct").fadeTo(1000, 0, function(){
+			$("#instruct").hide();
+			$("#paint"+(id+1)).fadeTo(1000, 1, function() {});
+		});
+	},
+
+	showInstruct: function( id )
+	{
+		$("#paint"+(id+1)).fadeTo(1000, 0, function(){
+			$("#paint"+(id+1)).hide();
+			$("#instruct").fadeTo(1000, 1, function() {});
+		});
 	}
 }
 
@@ -142,6 +160,11 @@ slideshow.state.add("Presentation", First);
 slideshow.state.add("Menu", Menu);
 slideshow.state.start("Presentation");
 
-function iniciarSlide(){
+function startSlide()
+{
 	slideshow.state.start("Menu", true);
+	$("#intro").fadeTo(1000, 0, function() {
+		$("#intro").hide();
+		$("#instruct").fadeTo(1000, 1, function(){});
+	});
 }
