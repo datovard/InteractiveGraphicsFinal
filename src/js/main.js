@@ -8,6 +8,22 @@ var CanvasHeight = wrapper.offsetHeight;
 // Se crea la presentación en Phaser
 var slideshow = new Phaser.Game( CanvasWidth, CanvasHeight, Phaser.CANVAS, "DaliShow");
 
+// Representa el menú lateral actualmente activo
+var lateralActual = "intro";
+
+// Función que cambia el estado del menú lateral.
+// utiliza la función fadeTo de JQuery para el
+// efecto de aparición lenta
+function changeLateralMenu( section )
+{
+	$("#"+lateralActual).fadeTo(1000, 0, function(){
+		$("#"+lateralActual).hide();
+		$("#"+section).fadeTo(1000, 1, function() {
+			lateralActual = section;
+		});
+	});
+}
+
 // Creando el estado de introducción
 var First =
 {
@@ -32,6 +48,7 @@ var First =
 		this.presentation.add(this.daliAtomicus);
 		this.presentation.alpha = 0;
 
+		// Animaciones son creadas con tween dentro de Phaser
 		slideshow.add.tween(this.presentation).to( { alpha: 1 }, 3000, Phaser.Easing.Linear.None, true );
 		this.fadeout = slideshow.add.tween(this.presentation).to( { alpha: 0 }, 3000, Phaser.Easing.Linear.None );
 		$("#intro").fadeTo(1000, 1, function() {});
@@ -162,7 +179,7 @@ var Menu =
 				// Se unen las animaciones
 				move.chain(scale);
 				move.start();
-				this.showInfo(this.active);
+				changeLateralMenu( "paint" + (this.active + 1) );
 			}
 			// Si hay una foto activa
 			else {
@@ -176,7 +193,7 @@ var Menu =
 				// Se unen las animaciones
 				move.chain(scale);
 				move.start();
-				this.showInstruct( this.active );
+				changeLateralMenu( 'instruct' );
 
 				// Se saca la imagen de activa
 				this.active = -1;
@@ -184,26 +201,6 @@ var Menu =
 				this.lastY = -1;
 			}
 		}
-	},
-
-	// Función que cambia el menú lateral a la información
-	// de cada pintura usando JQuery
-	showInfo: function( id )
-	{
-		$("#instruct").fadeTo(1000, 0, function(){
-			$("#instruct").hide();
-			$("#paint"+(id+1)).fadeTo(1000, 1, function() {});
-		});
-	},
-
-	// Función que retorna el menú lateral de cualquier pintura
-	// al menú de instrucciones usando JQuery
-	showInstruct: function( id )
-	{
-		$("#paint"+(id+1)).fadeTo(1000, 0, function(){
-			$("#paint"+(id+1)).hide();
-			$("#instruct").fadeTo(1000, 1, function() {});
-		});
 	}
 }
 
@@ -221,8 +218,5 @@ slideshow.state.start("Presentation");
 function startSlide()
 {
 	slideshow.state.start("Menu", true);
-	$("#intro").fadeTo(1000, 0, function() {
-		$("#intro").hide();
-		$("#instruct").fadeTo(1000, 1, function(){});
-	});
+	changeLateralMenu( "instruct" );
 }

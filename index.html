@@ -7,9 +7,9 @@
 	<meta charset="UTF-8">
 	<title>Dalí Show</title>
 	<meta name="viewport" content="width=device-width; initial-scale=1.0">
-
+	<link rel="icon" type="image/png" href="assets/DaliIcon.png" />
 	<!-- Estilos -->
-	<link href="src/css/styles.css" rel="stylesheet" type="text/css">
+	<link href="src/css/styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div class="container">
@@ -50,6 +50,10 @@
 				</div>
 				<div class="instructions">
 					Pulsa de nuevo sobre la obra para cerrarla y volver a este instructivo.
+				</div>
+
+				<div class="button-wrapper">
+					<button onclick="changeLateralMenu('credits')">Créditos</button>
 				</div>
 			</div>
 			<!-- FIN Contenido del menú de instrucciones de uso -->
@@ -190,8 +194,51 @@
 				</div>
 			</div>
 			<!-- FIN Pintura 8 -->
+
+			<!-- Sección de créditos -->
+			<div class="paints" id="credits">
+				<div class="title">
+					<span>Créditos</span>
+				</div>
+
+				<div class="content">
+					Este es un proyecto creado por Dorian Abad Tovar Díaz
+				</div>
+
+				<div class="content">
+					Las imagenes fueron tomadas de los siguientes sitios:
+					<ul>
+						<li><a href="http://lapiedradesisifo.com/2013/05/28/dal%C3%AD-atomicus-de-philippe-halsman/">Dalí Atomicus</a></li>
+						<li><a href="http://surrealismoartistico.blogspot.com.co/2013/12/analisis-de-la-persistencia-de-la.html">La persistencia de la memoria</a></li>
+						<li><a href="http://lab.rtve.es/revelando-a-dali/cuadro/cisnes-reflejando-elefantes">Cisnes que reflejan elefantes</a></li>
+						<li><a href="http://www.museoreinasofia.es/coleccion/obra/visage-du-grand-masturbateur-rostro-gran-masturbador">El gran masturbador</a></li>
+						<li><a href="https://www.pinterest.es/pin/292874781989252284/">Cristo de San Juan de la cruz</a></li>
+						<li><a href="https://blocdejavier.wordpress.com/2013/12/29/construccion-blanda-con-judias-hervidas-s-dali-1936/">Construccion blanda con judías hervidas</a></li>
+						<li><a href="https://www.quedeflores.com/blog/2011/11/16/la-metamorfosis-de-narciso-de-salvador-dali/">La metamorfosis de Narciso</a></li>
+						<li><a href="https://www.pinterest.es/pin/442337994645294537/">Galatea de las esferas</a></li>
+						<li><a href="https://www.museothyssen.org/coleccion/artistas/dali-salvador/sueno-causado-vuelo-abeja-alrededor-granada-segundo-antes">Sueño causado por el vuelo de una abeja alrededor de una granada segundo antes de despertar</a></li>
+						<li><a href="https://periodicocorreo.com.mx/excentrico-salvador-dali-amante-del-dinero/">Salvador Dalí retrato</a></li>
+						<li><a href="https://thenounproject.com/term/salvador-dali/">Salvador Dalí Icono</a></li>
+					</ul>
+				</div>
+				<div class="button-wrapper">
+					<button onclick="changeLateralMenu('sitemap')">Mapa del sitio</button>
+				</div>
+			</div>
+			<!-- FIN Sección de créditos -->
+
+			<!-- Mapa del sitio -->
+			<div class="paints" id="sitemap">
+				<div class="title">
+					<span>Mapa del sitio</span>
+				</div>
+				<img class="sitemap" src="assets/DaliShow.png" />
+				<div class="button-wrapper">
+					<button onclick="changeLateralMenu('instruct')">Regresar</button>
+				</div>
+			</div>
 		</div>
-		<!-- FIN pinturas -->
+		<!-- FIN Mapa del sitio -->
 	</div>
 </body>
 <script src="src/js/jquery-3.3.1.min.js"></script>
