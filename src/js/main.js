@@ -25,6 +25,7 @@ var First =
 
 		slideshow.add.tween(this.presentation).to( { alpha: 1 }, 3000, Phaser.Easing.Linear.None, true );
 		this.fadeout = slideshow.add.tween(this.presentation).to( { alpha: 0 }, 3000, Phaser.Easing.Linear.None );
+		$("#intro").fadeTo(1000, 1, function() {});
 	},
 
 	shutdown: function() {

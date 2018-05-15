@@ -49,6 +49,10 @@ body {
 	padding: 119px 22px;
 }
 
+#intro {
+	display: none;
+}
+
 #instruct {
 	display: none;
 }
