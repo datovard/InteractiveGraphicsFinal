@@ -63,14 +63,14 @@ var Menu =
 		this.presentation.add(this.background);
 
 		this.positions = [
-			{x: 30,		y: 40, 	s: 0.13, 	c: 0.38, sx: 25, sy: 10 },
-			{x: 300, 	y: 50, 	s: 0.09, 	c: 0.29, sx: 20, sy: 20 },
-			{x: 450, 	y: 50, 	s: 0.13, 	c: 0.37, sx: 20, sy: 20 },
+			{x: 30,		y: 40, 	s: 0.13, 	c: 0.35, sx: 25, sy: 10 },
+			{x: 300, 	y: 50, 	s: 0.09, 	c: 0.26, sx: 20, sy: 20 },
+			{x: 450, 	y: 50, 	s: 0.13, 	c: 0.34, sx: 20, sy: 20 },
 			{x: 50, 	y: 250, s: 0.3, 	c: 0.6, sx: 250, sy: 10 },
-			{x: 250, 	y: 250, s: 0.3, 	c: 1, sx: 150, sy: 20 },
-			{x: 450, 	y: 250, s: 0.2, 	c: 0.73, sx: 15, sy: 40 },
+			{x: 250, 	y: 250, s: 0.3, 	c: 1, sx: 130, sy: 20 },
+			{x: 450, 	y: 250, s: 0.2, 	c: 0.67, sx: 15, sy: 40 },
 			{x: 50, 	y: 450, s: 0.3, 	c: 0.76, sx: 200, sy: 10 },
-			{x: 250, 	y: 450, s: 0.08, 	c: 0.2, sx: 200, sy: 10 }
+			{x: 250, 	y: 450, s: 0.08, 	c: 0.2, sx: 180, sy: 10 }
 		];
 
 		for( var i = 0; i < this.positions.length; i++ )
@@ -131,7 +131,7 @@ var Menu =
 				move.chain(scale);
 				move.start();
 				this.showInstruct( this.active );
-				
+
 				this.active = -1;
 				this.lastX = -1;
 				this.lastY = -1;
