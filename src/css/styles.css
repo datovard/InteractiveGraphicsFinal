@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+/*************************
+* Estilos generales
+*************************/
 html,
 body,
 .container {
@@ -11,6 +14,11 @@ body {
 	background-color: #FFFFFF;
 }
 
+/*************************
+* Estilos para los lados de la presentación
+* Lado izquierdo o slides
+* Lado derecho o menú lateral
+*************************/
 .slides {
 	width: 780px;
 	height: 100%;
@@ -49,6 +57,10 @@ body {
 	padding: 119px 22px;
 }
 
+/*************************
+* Estilos para los distintos tipos
+* de menú lateral usados
+*************************/
 #intro {
 	display: none;
 }

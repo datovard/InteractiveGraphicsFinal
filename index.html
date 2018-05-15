@@ -1,3 +1,6 @@
+<!-- presentación virtual de 8 obras famosas del pintor español
+ 		 surrealista Salvador Dalí usando librería Phaser y un poco
+	 	 de JQuery -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,16 +8,22 @@
 	<title>Dalí Show</title>
 	<meta name="viewport" content="width=device-width; initial-scale=1.0">
 
+	<!-- Estilos -->
 	<link href="src/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="container">
+		<!-- Parte derecha o slides -->
 		<div class="slides" id="DaliShow">
 		</div>
+		<!-- Parte izquierda o menú lateral -->
 		<div class="text">
+			<!-- Imagen de fondo -->
 			<div class="text-background">
 				<img src="assets/SalvadorDaliRetrato.jpg"></img>
 			</div>
+
+			<!-- Contenido de introducción -->
 			<div id="intro">
 				<div class="signature" style="width: 100%;">
 					<img src="assets/DaliSignature.png" style="width:100%; height: auto;"></img>
@@ -26,6 +35,8 @@
 					<button onclick="startSlide()">Iniciar</button>
 				</div>
 			</div>
+			<!-- FIN Contenido de introducción -->
+			<!-- Contenido del menú de instrucciones de uso -->
 			<div id="instruct">
 				<div class="signature" style="width: 100%;">
 					<img src="assets/DaliSignature.png" style="width:100%; height: auto;"></img>
@@ -41,6 +52,12 @@
 					Pulsa de nuevo sobre la obra para cerrarla y volver a este instructivo.
 				</div>
 			</div>
+			<!-- FIN Contenido del menú de instrucciones de uso -->
+
+			<!-- Contenido de cada pintura, se muestra al clickear las pinturas
+		 			 dentro de la sección de slides -->
+
+			<!-- Pintura 1 -->
 			<div class="paints" id="paint1">
 				<div class="title">
 					<span>La persistencia de la memoria</span>
@@ -57,6 +74,9 @@
 					 El artista ha colocado sobre esta figura un cuarto reloj, igualmente blando y que también parece derretirse o escurrirse. Los elementos anteriormente descritos se ambientan en lo que parece una playa desierta, con el mar y una cala rodeadaa de acantilados al fondo. El cielo y el mar se confunden.
 				</div>
 			</div>
+			<!-- FIN Pintura 1 -->
+
+			<!-- Pintura 2 -->
 			<div class="paints" id="paint2">
 				<div class="title">
 					<span>Cisnes que se reflejan como elefantes</span>
@@ -70,6 +90,9 @@
 					 En la segunda guerra mundial, esta obra fue expoliada por el ejército alemán durante la ocupación francesa y permaneció almacenada en el museo Jeu de Paume de París en la llamada "salle des martyrs" entre 1940-1944. Hoy el cuadro pertenece a Cavaliere Holding, Co., Inc., en Ginebra, Suiza.2
 				</div>
 			</div>
+			<!-- FIN Pintura 2 -->
+
+			<!-- Pintura 3 -->
 			<div class="paints" id="paint3">
 				<div class="title">
 					<span>El gran masturbador</span>
@@ -83,6 +106,9 @@
 					Su encuentro con Elena Diákonova, nombre original de la que a partir de ese momento se convertirá en su gran musa, le cambia y da como fruto esta obra, símbolo por excelencia de sus obsesiones sexuales.
 				</div>
 			</div>
+			<!-- FIN Pintura 3 -->
+
+			<!-- Pintura 4 -->
 			<div class="paints" id="paint4">
 				<div class="title">
 					<span>Cristo de San Juan de la cruz</span>
@@ -96,6 +122,9 @@
 					El paisaje en calma se inspira en Port Lligat y en un dibujo de Diego Velázquez para la rendición de Breda. Los pescadores están inspirados en una pintura de Le Nain.
 				</div>
 			</div>
+			<!-- FIN Pintura 4 -->
+
+			<!-- Pintura 5 -->
 			<div class="paints" id="paint5">
 				<div class="title">
 					<span>Construcción blanda con judías hervidas</span>
@@ -109,6 +138,9 @@
 					La figura está constituida por una pierna y una extremidad de la que surge otra. Estas dos partes se intentan despedazar. Debajo del monstruo amorfo hay un pie, el cual tiene un dedo de gran tamaño. Arriba se encuentra una cabeza sonriente inclinada hacia arriba, pareciendo ser cegada por el Sol. Esta cabeza recuerda mucho la pintura de Goya Saturno devorando a sus hijos, de carácter sombrío y terrorífico.
 				</div>
 			</div>
+			<!-- FIN Pintura 5 -->
+
+			<!-- Pintura 6 -->
 			<div class="paints" id="paint6">
 				<div class="title">
 					<span>La metamorfosis de Narciso</span>
@@ -122,6 +154,9 @@
 					En la imagen de Dalí se puede ver como la figura de Narciso se transforma en una mano osificada, de piedra, y de esa muerte resurge la vida. Pero además los dedos de esa mano pétrea (a la derecha) en los que se ha convertido la imagen humana de Narciso (a la izquierda) sostienen un huevo que sería la cabeza, pero además es el símbolo del seno materno del que brota una flor. Es decir, en esta imagen están muchos de los elementos simbólicos y con doble sentido de la pintura daliniana, y por supuesto prácticamente se puede considerar a esta imagen como un verdadero autorretrato del artista, sin duda alguna, uno de los mayores narcisistas que ha dado toda la Historia de la pintura.
 				</div>
 			</div>
+			<!-- FIN Pintura 6 -->
+
+			<!-- Pintura 7 -->
 			<div class="paints" id="paint7">
 				<div class="title">
 					<span>Galatea de las esferas</span>
@@ -138,6 +173,9 @@
 					Esta obra también fue simbólica en su intento por reconciliar su fe en el Catolicismo con la física nuclear.​ Su amigo y pintor Antoni Pitxot, remarcó que Dalí tenía muy en cuenta la profundidad de la perspectiva en la pintura y en las esferas que había pintado.
 				</div>
 			</div>
+			<!-- FIN Pintura 7 -->
+
+			<!-- Pintura 8 -->
 			<div class="paints" id="paint8">
 				<div class="title">
 					<span>Sueño causado por el vuelo de una abeja alrededor de una granada un segundo antes de despertar</span>
@@ -151,7 +189,9 @@
 					A pesar de que por aquel entonces pintaba sobre temas religiosos y había abandonado el surrealismo ortodoxo, en donde se introducía en el mundo de los sueños, el largo título del lienzo muestra su intención de otorgarle al cuadro un carácter psicoanalítico.
 				</div>
 			</div>
+			<!-- FIN Pintura 8 -->
 		</div>
+		<!-- FIN pinturas -->
 	</div>
 </body>
 <script src="src/js/jquery-3.3.1.min.js"></script>
