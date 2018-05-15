@@ -38,6 +38,9 @@ var Menu =
 	presentation: "",
 	paintings: [],
 	positions: [],
+	active: -1,
+	lastX: -1,
+	lastY: -1,
 
 	preload: function()
 	{
@@ -60,14 +63,14 @@ var Menu =
 		this.presentation.add(this.background);
 
 		this.positions = [
-			{x: 30,		y: 40, 	s: 0.13, 	r: 1 },
-			{x: 300, 	y: 50, 	s: 0.09, 	r: 1  },
-			{x: 450, 	y: 50, 	s: 0.13, 	r: 1  },
-			{x: 50, 	y: 250, s: 0.3, 	r: 1  },
-			{x: 250, 	y: 250, s: 0.3, 	r: 1  },
-			{x: 450, 	y: 250, s: 0.2, 	r: 1  },
-			{x: 50, 	y: 450, s: 0.3, 	r: 1  },
-			{x: 250, 	y: 450, s: 0.08, 	r: 1  }
+			{x: 30,		y: 40, 	s: 0.13, 	c: 0.38, sx: 25, sy: 10 },
+			{x: 300, 	y: 50, 	s: 0.09, 	c: 0.29, sx: 20, sy: 20 },
+			{x: 450, 	y: 50, 	s: 0.13, 	c: 0.37, sx: 20, sy: 20 },
+			{x: 50, 	y: 250, s: 0.3, 	c: 0.6, sx: 250, sy: 10 },
+			{x: 250, 	y: 250, s: 0.3, 	c: 1, sx: 150, sy: 20 },
+			{x: 450, 	y: 250, s: 0.2, 	c: 0.73, sx: 15, sy: 40 },
+			{x: 50, 	y: 450, s: 0.3, 	c: 0.76, sx: 200, sy: 10 },
+			{x: 250, 	y: 450, s: 0.08, 	c: 0.2, sx: 200, sy: 10 }
 		];
 
 		for( var i = 0; i < this.positions.length; i++ )
@@ -75,16 +78,61 @@ var Menu =
 			this.paintings[i] = slideshow.add.image( this.positions[i].x, this.positions[i].y, "paint"+(i+1));
 			this.paintings[i].scale.setTo( this.positions[i].s );
 			this.paintings[i].inputEnabled = true;
+			this.paintings[i].input.enableDrag(false, true);
+			this.paintings[i].input.dragDistanceThreshold = 20;
+			this.paintings[i].events.onInputUp.add(this.listener, this);
+			this.paintings[i].id = i;
 		}
 	},
 
 	update: function()
 	{
-		for( var i = 0; i < this.paintings.length; i++ ){
-			if(this.paintings[i].input.pointerOver()){
-				slideshow.add.tween(this.paintings[i].scale).to( { x: this.positions[i].s + 0.02, y: this.positions[i].s + 0.02 }, 100, Phaser.Easing.Linear.None, true );
-			}else{
-				slideshow.add.tween(this.paintings[i].scale).to( { x: this.positions[i].s, y: this.positions[i].s }, 100, Phaser.Easing.Linear.None, true );
+		if( this.active == -1 ){
+			for( var i = 0; i < this.paintings.length; i++ ){
+				if(this.paintings[i].input.pointerOver()){
+					slideshow.add.tween(this.paintings[i].scale).to( { x: this.positions[i].s + 0.02, y: this.positions[i].s + 0.02 }, 100, Phaser.Easing.Linear.None, true );
+				}else{
+					slideshow.add.tween(this.paintings[i].scale).to( { x: this.positions[i].s, y: this.positions[i].s }, 100, Phaser.Easing.Linear.None, true );
+				}
+			}
+		}
+	},
+
+	isDrag: function()
+	{
+		var distanceFromLastUp = Phaser.Math.distance(slideshow.input.activePointer.positionDown.x, slideshow.input.activePointer.positionDown.y, slideshow.input.activePointer.x, slideshow.input.activePointer.y);
+		if (distanceFromLastUp != 0) return true;
+		return false;
+	},
+
+	listener: function(image, pointer){
+		if( pointer.button == 0 && !this.isDrag() ){
+			if( this.active == -1 ){
+				this.active = image.id;
+				this.lastX = image.x;
+				this.lastY = image.y;
+
+				move = slideshow.add.tween(image).to(
+					{ x:  this.positions[this.active].sx, y:  this.positions[this.active].sy },
+					100, Phaser.Easing.Linear.None );
+
+				scale = slideshow.add.tween(image.scale).to(
+					{ x: this.positions[this.active].c, y: this.positions[this.active].c },
+					1000, Phaser.Easing.Linear.None );
+
+				move.chain(scale);
+				move.start();
+			} else {
+				scale = slideshow.add.tween(image.scale).to(
+					{ x: this.positions[this.active].s, y: this.positions[this.active].s },
+					1000, Phaser.Easing.Linear.None );
+				move = slideshow.add.tween(image).to( { x: this.lastX, y: this.lastY }, 100, Phaser.Easing.Linear.None );
+				move.chain(scale);
+				move.start();
+
+				this.active = -1;
+				this.lastX = -1;
+				this.lastY = -1;
 			}
 		}
 	}

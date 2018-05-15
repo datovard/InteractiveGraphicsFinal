@@ -12,13 +12,26 @@ body {
 }
 
 .slides {
-	width: 850px;
+	width: 780px;
 	height: 100%;
 	float: left;
 }
 
 .text {
-	width: 300px;
+	width: 400px;
 	height: 100%;
 	float: left;
+	padding-top: 75px;
+}
+
+.text button {
+	border: none;
+  width: 100%;
+  background-color: rgb(92, 154, 100);
+  padding: 20px;
+}
+
+.subtitle {
+	width: 100%;
+	padding: 119px 22px;
 }
