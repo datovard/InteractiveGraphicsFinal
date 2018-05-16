@@ -16,10 +16,11 @@ var lateralActual = "intro";
 // efecto de aparición lenta
 function changeLateralMenu( section )
 {
-	$("#"+lateralActual).fadeTo(1000, 0, function(){
-		$("#"+lateralActual).hide();
-		$("#"+section).fadeTo(1000, 1, function() {
-			lateralActual = section;
+	$("#"+lateralActual).fadeTo(500, 0, function(){
+		$("#"+lateralActual).hide(0, function(){
+			$("#"+section).fadeTo(500, 1, function() {
+				lateralActual = section;
+			});
 		});
 	});
 }
