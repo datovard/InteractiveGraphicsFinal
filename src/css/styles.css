@@ -29,16 +29,16 @@ body {
 	width: 400px;
 	height: 100%;
 	float: left;
-	padding-top: 75px;
 	overflow: hidden;
 	background-color: rgba(255, 255, 255, 0.75);
+	position: relative;
 }
 
 .text-background {
 	height: 100%;
 	z-index: -1;
 	position: absolute;
-	margin-top: -75px;
+	overflow: hidden;
 }
 
 .text-background img {
@@ -54,7 +54,7 @@ body {
 
 .subtitle {
 	width: 100%;
-	padding: 119px 22px;
+  padding: 100px 7px;
 }
 
 /*************************
@@ -63,11 +63,12 @@ body {
 *************************/
 #intro {
 	display: none;
+	margin-top: 50px;
 }
 
 #instruct {
 	display: none;
-	margin-top: -65px;
+	margin-top: 50px;
 }
 
 #instruct .signature {
@@ -84,6 +85,7 @@ body {
 
 .paints {
 	display: none;
+	    padding-top: 30px;
 }
 
 .title {
