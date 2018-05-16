@@ -4,10 +4,16 @@
 * Estilos generales
 *************************/
 html,
-body,
+body {
+	height: 98%;
+  width: 98%;
+  padding: 0;
+  text-align: center;
+}
 .container {
 	height: 98.5%;
-	width: 98.5%;
+  width: auto;
+  margin: 0 auto;
 }
 
 body {
@@ -21,17 +27,19 @@ body {
 *************************/
 .slides {
 	width: 740px;
-	height: 100%;
-	float: left;
+  height: 100%;
+  position: relative;
+  display: inline-block;
 }
 
 .text {
 	width: 400px;
-	height: 100%;
-	float: left;
-	overflow: hidden;
-	background-color: rgba(255, 255, 255, 0.75);
-	position: relative;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.75);
+  position: relative;
+  display: inline-block;
+	text-align: justify;
 }
 
 .text-background {
